@@ -1,6 +1,7 @@
 import Shape from "./Shapes/Shape";
 import Rectangle from "./Shapes/Rectangle";
 import Circle from "./Shapes/Circle";
+import Pencil from "./Shapes/Pencil";
 
 export default class CanvasApp {
   private shapes: Shape[] = [];
@@ -26,6 +27,9 @@ export default class CanvasApp {
       case "CIRCLE":
         this.currentShape = new Circle(x, y);
         break;
+      case "PENCIL":
+        this.currentShape = new Pencil(x, y, "red", 1);
+        break;
     }
 
     if (this.currentShape && this.context !== null) {
@@ -35,15 +39,16 @@ export default class CanvasApp {
 
   continueDrawing(currentShape: Shape | null, x: number, y: number): void {
     if (this.isDrawing) {
-      //* Очищаем canvas перед каждым новым кадром
-      this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
       if (currentShape instanceof Rectangle) {
         currentShape.setDimensions(x, y);
       }
 
       if (currentShape instanceof Circle) {
         currentShape.setRadius(x, y);
+      }
+
+      if (currentShape instanceof Pencil) {
+        currentShape.addPoint({ x, y });
       }
 
       if (this.currentShape && this.context !== null) {
@@ -68,8 +73,15 @@ export default class CanvasApp {
   }
 
   private drawShapes(): void {
+    //* Очищаем canvas перед каждым новым кадром
+    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
     for (let shape of this.shapes) {
       shape.draw(this.context);
+    }
+
+    if (this.currentShape) {
+      this.currentShape.draw(this.context);
     }
   }
 

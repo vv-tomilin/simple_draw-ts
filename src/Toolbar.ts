@@ -21,7 +21,6 @@ export default class Toolbar {
   }
 
   private appendTools(container: HTMLDivElement) {
-
     for (const tool of this.toolsList) {
       const label: HTMLLabelElement = document.createElement("label") as HTMLLabelElement;
       const radioButton: HTMLInputElement = document.createElement("input") as HTMLInputElement;
@@ -34,6 +33,8 @@ export default class Toolbar {
         case ToolType.CIRCLE:
           this.toolElementCreate(label, radioButton, ToolType.CIRCLE, ToolNameRU.CIRCLE);
           break;
+        case ToolType.PENCIL:
+          this.toolElementCreate(label, radioButton, ToolType.PENCIL, ToolNameRU.PENCIL);
       }
 
       label.appendChild(radioButton);

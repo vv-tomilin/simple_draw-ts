@@ -4,7 +4,7 @@ import CanvasApp from "./CanvasApp";
 
 import { BackgroundColor, ToolType } from "./types/commonTypes";
 
-const tools: ToolType[] = [ToolType.RECTANGLE, ToolType.CIRCLE];
+const tools: ToolType[] = [ToolType.RECTANGLE, ToolType.CIRCLE, ToolType.PENCIL];
 
 document.addEventListener("DOMContentLoaded", () => {
   const app: HTMLDivElement = document.getElementById("app") as HTMLDivElement;
