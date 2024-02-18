@@ -11,7 +11,6 @@ export default class Rectangle extends Shape {
   }
 
   draw(context: CanvasRenderingContext2D): void {
-    console.log(`drawing RECTANGLE ${this.x} ${this.y} ${this.width} ${this.height}`);
     context?.fillRect(this.x, this.y, this.width, this.height);
   }
 
