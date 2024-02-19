@@ -8,13 +8,18 @@ const tools: ToolType[] = [ToolType.RECTANGLE, ToolType.CIRCLE, ToolType.PENCIL]
 
 document.addEventListener("DOMContentLoaded", () => {
   const app: HTMLDivElement = document.getElementById("app") as HTMLDivElement;
-  const canvasBackgroundColor: BackgroundColor = "aqua";
+  const canvasBackgroundColor: BackgroundColor = "#FFFFF0";
 
-  const canvas = new CanvasCreator(800, 500, app, canvasBackgroundColor);
+  const canvas = new CanvasCreator(
+    window.innerWidth - 15,
+    window.innerHeight - 40,
+    app,
+    canvasBackgroundColor
+  );
   const toolbar = new Toolbar(app, tools);
 
-  canvas.create();
   toolbar.create();
+  canvas.create();
 
   const canvasElem = canvas.getCanvas();
 
