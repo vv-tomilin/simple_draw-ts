@@ -1,0 +1,7 @@
+.toolbar__label {
+    //background-color: red;
+}
+
+.toolbar__label + input:checked {
+    background-color: red;
+}

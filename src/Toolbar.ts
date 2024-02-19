@@ -55,8 +55,12 @@ export default class Toolbar {
     toolType: ToolType,
     toolNameRU: ToolNameRU
   ) {
+    labelElement.classList.add("toolbar__label");
+    labelElement.setAttribute("for", toolType.toLowerCase());
+    labelElement.innerText = toolNameRU;
+
     radioButtonElement.setAttribute("value", toolType);
     radioButtonElement.id = toolType.toLowerCase();
-    labelElement.innerText = toolNameRU;
+    radioButtonElement.classList.add("visually-hidden");
   }
 }

@@ -4,6 +4,8 @@ import CanvasApp from "./CanvasApp";
 
 import { BackgroundColor, ToolType } from "./types/commonTypes";
 
+import "./styles/style.scss";
+
 const tools: ToolType[] = [ToolType.RECTANGLE, ToolType.CIRCLE, ToolType.PENCIL];
 
 document.addEventListener("DOMContentLoaded", () => {
