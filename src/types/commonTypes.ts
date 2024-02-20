@@ -6,6 +6,12 @@ enum ToolType {
   PENCIL = "PENCIL",
 }
 
+enum ToolIcon {
+  RECTANGLE = require("../assets/icons/rectangle_1.svg"),
+  CIRCLE = "../assets/icons/circle_1.svg",
+  PENCIL = "../assets/icons/pencil_1.svg",
+}
+
 enum ToolNameRU {
   RECTANGLE = "Прямоугольник",
   CIRCLE = "Круг",
@@ -13,4 +19,4 @@ enum ToolNameRU {
 }
 
 export type { BackgroundColor };
-export { ToolType, ToolNameRU };
+export { ToolType, ToolNameRU, ToolIcon };

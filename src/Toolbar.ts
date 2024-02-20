@@ -1,4 +1,4 @@
-import { ToolType, ToolNameRU } from "./types/commonTypes";
+import { ToolType, ToolNameRU, ToolIcon } from "./types/commonTypes";
 
 export default class Toolbar {
   private toolbarContainer: HTMLDivElement = document.createElement("div") as HTMLDivElement;
@@ -28,13 +28,31 @@ export default class Toolbar {
 
       switch (tool) {
         case ToolType.RECTANGLE:
-          this.toolElementCreate(label, radioButton, ToolType.RECTANGLE, ToolNameRU.RECTANGLE);
+          this.toolElementCreate(
+            label,
+            radioButton,
+            ToolType.RECTANGLE,
+            ToolNameRU.RECTANGLE,
+            ToolIcon.RECTANGLE
+          );
           break;
         case ToolType.CIRCLE:
-          this.toolElementCreate(label, radioButton, ToolType.CIRCLE, ToolNameRU.CIRCLE);
+          this.toolElementCreate(
+            label,
+            radioButton,
+            ToolType.CIRCLE,
+            ToolNameRU.CIRCLE,
+            ToolIcon.CIRCLE
+          );
           break;
         case ToolType.PENCIL:
-          this.toolElementCreate(label, radioButton, ToolType.PENCIL, ToolNameRU.PENCIL);
+          this.toolElementCreate(
+            label,
+            radioButton,
+            ToolType.PENCIL,
+            ToolNameRU.PENCIL,
+            ToolIcon.PENCIL
+          );
       }
 
       label.appendChild(radioButton);
@@ -43,6 +61,8 @@ export default class Toolbar {
 
       radioButton.addEventListener("click", () => {
         this.selectedTool = radioButton.getAttribute("value");
+        label.classList.add("toolbar__selected");
+        this.clearSelectedLabels();
       });
 
       container.appendChild(label);
@@ -53,14 +73,31 @@ export default class Toolbar {
     labelElement: HTMLLabelElement,
     radioButtonElement: HTMLInputElement,
     toolType: ToolType,
-    toolNameRU: ToolNameRU
+    toolNameRU: ToolNameRU,
+    toolIcon: ToolIcon
   ) {
     labelElement.classList.add("toolbar__label");
     labelElement.setAttribute("for", toolType.toLowerCase());
-    labelElement.innerText = toolNameRU;
+    labelElement.setAttribute("title", toolNameRU);
+
+    const icon = document.createElement("img");
+    icon.setAttribute("href", toolIcon);
+    labelElement.appendChild(icon);
+
+    console.log(">>>>>>>>>> ", typeof toolIcon);
 
     radioButtonElement.setAttribute("value", toolType);
     radioButtonElement.id = toolType.toLowerCase();
     radioButtonElement.classList.add("visually-hidden");
+  }
+
+  private clearSelectedLabels() {
+    const selectedLabels = document.querySelectorAll(".toolbar__label");
+
+    for (const label of selectedLabels) {
+      if (label.getAttribute("for")?.toUpperCase() !== this.selectedTool) {
+        label.classList.remove("toolbar__selected");
+      }
+    }
   }
 }
