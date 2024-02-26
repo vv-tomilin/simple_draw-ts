@@ -6,7 +6,13 @@ import { BackgroundColor, ToolType } from "./types/commonTypes";
 
 import "./styles/style.scss";
 
-const tools: ToolType[] = [ToolType.RECTANGLE, ToolType.CIRCLE, ToolType.PENCIL];
+const tools: ToolType[] = [
+  ToolType.RECTANGLE,
+  ToolType.RECTANGLE_FILL_ONLY,
+  ToolType.RECTANGLE_OUTLINE_FILL,
+  ToolType.CIRCLE,
+  ToolType.PENCIL,
+];
 
 document.addEventListener("DOMContentLoaded", () => {
   const app: HTMLDivElement = document.getElementById("app") as HTMLDivElement;

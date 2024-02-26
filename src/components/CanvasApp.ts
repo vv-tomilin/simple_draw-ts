@@ -2,6 +2,7 @@ import Shape from "./Shapes/Shape";
 import Rectangle from "./Shapes/Rectangle";
 import Circle from "./Shapes/Circle";
 import Pencil from "./Shapes/Pencil";
+import { ToolType } from "../types/commonTypes";
 
 export default class CanvasApp {
   private shapes: Shape[] = [];
@@ -22,7 +23,13 @@ export default class CanvasApp {
 
     switch (currentTool) {
       case "RECTANGLE":
-        this.currentShape = new Rectangle(x, y);
+        this.currentShape = new Rectangle(x, y, ToolType.RECTANGLE, "", "black", 1);
+        break;
+      case "RECTANGLE_FILL_ONLY":
+        this.currentShape = new Rectangle(x, y, ToolType.RECTANGLE_FILL_ONLY, "green", "", 1);
+        break;
+      case "RECTANGLE_OUTLINE_FILL":
+        this.currentShape = new Rectangle(x, y, ToolType.RECTANGLE_OUTLINE_FILL, "red", "black", 3);
         break;
       case "CIRCLE":
         this.currentShape = new Circle(x, y);
@@ -73,7 +80,6 @@ export default class CanvasApp {
   }
 
   private drawShapes(): void {
-    //* Очищаем canvas перед каждым новым кадром
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
     for (let shape of this.shapes) {

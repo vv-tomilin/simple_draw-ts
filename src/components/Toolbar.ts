@@ -38,6 +38,24 @@ export default class Toolbar {
             ToolIcon.RECTANGLE
           );
           break;
+        case ToolType.RECTANGLE_OUTLINE_FILL:
+          this.toolElementCreate(
+            label,
+            radioButton,
+            ToolType.RECTANGLE_OUTLINE_FILL,
+            ToolNameRU.RECTANGLE_OUTLINE_FILL,
+            ToolIcon.RECTANGLE_OUTLINE_FILL
+          );
+          break;
+        case ToolType.RECTANGLE_FILL_ONLY:
+          this.toolElementCreate(
+            label,
+            radioButton,
+            ToolType.RECTANGLE_FILL_ONLY,
+            ToolNameRU.RECTANGLE_FILL_ONLY,
+            ToolIcon.RECTANGLE_FILL_ONLY
+          );
+          break;
         case ToolType.CIRCLE:
           this.toolElementCreate(
             label,
