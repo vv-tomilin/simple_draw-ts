@@ -1,4 +1,4 @@
-import { BackgroundColor } from "./types/commonTypes";
+import { BackgroundColor } from "../types/commonTypes";
 
 export default class CanvasCreator {
   private canvas: HTMLCanvasElement = document.createElement("canvas") as HTMLCanvasElement;

@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 require("webpack");
 const path = require("path");
 
@@ -15,6 +16,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
+    publicPath: "/",
   },
   module: {
     rules: [
@@ -35,21 +37,26 @@ module.exports = {
           "sass-loader",
         ],
       },
-      {
-        test: /\.(svg|png|jpg|gif)$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "[name].[ext]",
-              outputPath: "assets/icons/",
-            },
-          },
-        ],
-      },
+      // {
+      //   test: /\.(svg|png|jpg|gif)$/,
+      //   use: [
+      //     {
+      //       loader: "file-loader",
+      //       options: {
+      //         name: "[name].[ext]",
+      //         outputPath: "./assets/icons/",
+      //       },
+      //     },
+      //   ],
+      // },
     ],
   },
-  plugins: [new HtmlWebpackPlugin({ template: "./index.html" })],
+  plugins: [
+    new HtmlWebpackPlugin({ template: "./index.html" }),
+    new CopyWebpackPlugin({
+      patterns: [{ from: "src/assets/icons", to: "assets/icons" }],
+    }),
+  ],
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },

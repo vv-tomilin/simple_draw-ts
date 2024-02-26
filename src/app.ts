@@ -1,6 +1,6 @@
-import CanvasCreator from "./CanvasCreator";
-import Toolbar from "./Toolbar";
-import CanvasApp from "./CanvasApp";
+import CanvasCreator from "./components/CanvasCreator";
+import Toolbar from "./components/Toolbar";
+import CanvasApp from "./components/CanvasApp";
 
 import { BackgroundColor, ToolType } from "./types/commonTypes";
 

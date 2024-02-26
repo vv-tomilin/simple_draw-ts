@@ -1,7 +1,19 @@
+.toolbar {
+    margin-top: 10px;
+    display: flex;
+}
+
 .toolbar__label {
-    //background-color: red;
+    margin-right: 10px;
+    padding: 5px;
+    align-items: center;
 }
 
 .toolbar__selected {
-    background-color: red;
+    display: block;
+    width: min-content;
+    height: 32px;
+    background-color: rgb(254, 255, 192);
+    border-radius: 8px;
+    box-shadow: 3px 3px 15px -2px rgba(0, 0, 0, 0.2) inset;
 }

@@ -7,9 +7,9 @@ enum ToolType {
 }
 
 enum ToolIcon {
-  RECTANGLE = require("../assets/icons/rectangle_1.svg"),
-  CIRCLE = "../assets/icons/circle_1.svg",
-  PENCIL = "../assets/icons/pencil_1.svg",
+  RECTANGLE = "/assets/icons/rectangle_1.svg",
+  CIRCLE = "/assets/icons/circle_1.svg",
+  PENCIL = "/assets/icons/pencil_1.svg",
 }
 
 enum ToolNameRU {

@@ -1,4 +1,4 @@
-import { ToolType, ToolNameRU, ToolIcon } from "./types/commonTypes";
+import { ToolType, ToolNameRU, ToolIcon } from "../types/commonTypes";
 
 export default class Toolbar {
   private toolbarContainer: HTMLDivElement = document.createElement("div") as HTMLDivElement;
@@ -12,6 +12,8 @@ export default class Toolbar {
   }
 
   create() {
+    this.toolbarContainer.classList.add("toolbar");
+
     this.appElement.appendChild(this.toolbarContainer);
     this.appendTools(this.toolbarContainer);
   }
@@ -74,17 +76,18 @@ export default class Toolbar {
     radioButtonElement: HTMLInputElement,
     toolType: ToolType,
     toolNameRU: ToolNameRU,
-    toolIcon: ToolIcon
+    toolIcon: string
   ) {
     labelElement.classList.add("toolbar__label");
     labelElement.setAttribute("for", toolType.toLowerCase());
     labelElement.setAttribute("title", toolNameRU);
 
     const icon = document.createElement("img");
-    icon.setAttribute("href", toolIcon);
-    labelElement.appendChild(icon);
+    icon.setAttribute("src", toolIcon);
+    icon.setAttribute("width", "32");
+    icon.setAttribute("width", "32");
 
-    console.log(">>>>>>>>>> ", typeof toolIcon);
+    labelElement.appendChild(icon);
 
     radioButtonElement.setAttribute("value", toolType);
     radioButtonElement.id = toolType.toLowerCase();
