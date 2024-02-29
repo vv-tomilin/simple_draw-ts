@@ -65,6 +65,24 @@ export default class Toolbar {
             ToolIcon.CIRCLE
           );
           break;
+        case ToolType.CIRCLE_FILL_ONLY:
+          this.toolElementCreate(
+            label,
+            radioButton,
+            ToolType.CIRCLE_FILL_ONLY,
+            ToolNameRU.CIRCLE_FILL_ONLY,
+            ToolIcon.CIRCLE_FILL_ONLY
+          );
+          break;
+        case ToolType.CIRCLE_OUTLINE_FILL:
+          this.toolElementCreate(
+            label,
+            radioButton,
+            ToolType.CIRCLE_OUTLINE_FILL,
+            ToolNameRU.CIRCLE_OUTLINE_FILL,
+            ToolIcon.CIRCLE_OUTLINE_FILL
+          );
+          break;
         case ToolType.PENCIL:
           this.toolElementCreate(
             label,

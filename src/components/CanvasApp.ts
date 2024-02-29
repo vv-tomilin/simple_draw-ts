@@ -32,7 +32,13 @@ export default class CanvasApp {
         this.currentShape = new Rectangle(x, y, ToolType.RECTANGLE_OUTLINE_FILL, "red", "black", 3);
         break;
       case "CIRCLE":
-        this.currentShape = new Circle(x, y);
+        this.currentShape = new Circle(x, y, ToolType.CIRCLE, "", "black", 2);
+        break;
+      case "CIRCLE_FILL_ONLY":
+        this.currentShape = new Circle(x, y, ToolType.CIRCLE_FILL_ONLY, "green", "", 2);
+        break;
+      case "CIRCLE_OUTLINE_FILL":
+        this.currentShape = new Circle(x, y, ToolType.CIRCLE_OUTLINE_FILL, "blue", "red", 2);
         break;
       case "PENCIL":
         this.currentShape = new Pencil(x, y, "red", 1);

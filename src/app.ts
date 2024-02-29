@@ -11,6 +11,8 @@ const tools: ToolType[] = [
   ToolType.RECTANGLE_FILL_ONLY,
   ToolType.RECTANGLE_OUTLINE_FILL,
   ToolType.CIRCLE,
+  ToolType.CIRCLE_FILL_ONLY,
+  ToolType.CIRCLE_OUTLINE_FILL,
   ToolType.PENCIL,
 ];
 
