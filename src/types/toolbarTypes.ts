@@ -9,13 +9,13 @@ enum ToolType {
 }
 
 enum ToolIcon {
-  RECTANGLE = "/assets/icons/rectangle.svg",
-  RECTANGLE_FILL_ONLY = "/assets/icons/rectangle_fill_only.svg",
-  RECTANGLE_OUTLINE_FILL = "/assets/icons/rectangle_outline_fill.svg",
-  CIRCLE = "/assets/icons/circle.svg",
-  CIRCLE_FILL_ONLY = "/assets/icons/circle_fill_only.svg",
-  CIRCLE_OUTLINE_FILL = "/assets/icons/circle_outline_fill.svg",
-  PENCIL = "/assets/icons/pencil_1.svg",
+  RECTANGLE = "./assets/icons/rectangle.svg",
+  RECTANGLE_FILL_ONLY = "./assets/icons/rectangle_fill_only.svg",
+  RECTANGLE_OUTLINE_FILL = "./assets/icons/rectangle_outline_fill.svg",
+  CIRCLE = "./assets/icons/circle.svg",
+  CIRCLE_FILL_ONLY = "./assets/icons/circle_fill_only.svg",
+  CIRCLE_OUTLINE_FILL = "./assets/icons/circle_outline_fill.svg",
+  PENCIL = "./assets/icons/pencil_1.svg",
 }
 
 enum ToolNameRU {
