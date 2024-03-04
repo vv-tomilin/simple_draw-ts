@@ -1,0 +1,58 @@
+.width {
+  display: flex;
+  align-items: center;
+
+  padding: 5px 10px 5px 10px;
+
+  position: relative;
+
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.width__list {
+  position: absolute;
+
+  padding: 5px 15px 5px 5px;
+
+  right: 55px;
+  top: 35px;
+
+  background-color: white;
+  border: 1px solid black;
+}
+
+.width__set-width {
+  width: 40px;
+  height: min-content;
+}
+
+.width__show-width {
+  text-align: center;
+  min-width: 35px;
+  width: max-content;
+}
+
+.width__wrapper {
+  position: relative;
+  width: 15px;
+  height: 15px;
+}
+
+.width__wrapper--close::after {
+  content: "";
+  position: absolute;
+  border: 6px solid transparent;
+  border-top-color: #333; /* Цвет треугольника */
+  transform: translateY(50%);
+  pointer-events: none;
+}
+
+.width__wrapper--open::after {
+  content: "";
+  position: absolute;
+  border: 6px solid transparent;
+  border-top-color: #333; /* Цвет треугольника */
+  transform: translateY(-50%) rotate(180deg) translateY(-50%);
+  pointer-events: none;
+}
