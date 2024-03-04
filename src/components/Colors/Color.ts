@@ -44,7 +44,7 @@ export default class Color {
     }
   }
 
-  getColor() {
+  getColor(): BackgroundColor | null {
     return this.selectedColor;
   }
 
@@ -117,7 +117,7 @@ export default class Color {
     labelElement.setAttribute("for", `${color}-${this.type}`);
     labelElement.dataset.color = color;
 
-    const colorIcon = document.createElement("div");
+    const colorIcon: HTMLDivElement = document.createElement("div");
     colorIcon.style.backgroundColor = color;
     colorIcon.classList.add("color__icon");
 

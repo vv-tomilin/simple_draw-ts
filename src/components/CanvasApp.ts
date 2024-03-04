@@ -22,7 +22,8 @@ export default class CanvasApp {
     x: number,
     y: number,
     fillColor: BackgroundColor | null,
-    borderColor: BackgroundColor | null
+    borderColor: BackgroundColor | null,
+    lineWidth: number
   ): void {
     if (!this.isDrawing) {
       this.isDrawing = true;
@@ -30,7 +31,7 @@ export default class CanvasApp {
 
     switch (currentTool) {
       case "RECTANGLE":
-        this.currentShape = new Rectangle(x, y, ToolType.RECTANGLE, "", fillColor!, 1);
+        this.currentShape = new Rectangle(x, y, ToolType.RECTANGLE, "", fillColor!, lineWidth);
         break;
       case "RECTANGLE_FILL_ONLY":
         this.currentShape = new Rectangle(
@@ -39,7 +40,7 @@ export default class CanvasApp {
           ToolType.RECTANGLE_FILL_ONLY,
           fillColor!,
           borderColor!,
-          1
+          lineWidth
         );
         break;
       case "RECTANGLE_OUTLINE_FILL":
@@ -49,11 +50,11 @@ export default class CanvasApp {
           ToolType.RECTANGLE_OUTLINE_FILL,
           fillColor!,
           borderColor!,
-          2
+          lineWidth
         );
         break;
       case "CIRCLE":
-        this.currentShape = new Circle(x, y, ToolType.CIRCLE, "", fillColor!, 2);
+        this.currentShape = new Circle(x, y, ToolType.CIRCLE, "", fillColor!, lineWidth);
         break;
       case "CIRCLE_FILL_ONLY":
         this.currentShape = new Circle(
@@ -62,7 +63,7 @@ export default class CanvasApp {
           ToolType.CIRCLE_FILL_ONLY,
           fillColor!,
           borderColor!,
-          2
+          lineWidth
         );
         break;
       case "CIRCLE_OUTLINE_FILL":
@@ -72,11 +73,11 @@ export default class CanvasApp {
           ToolType.CIRCLE_OUTLINE_FILL,
           fillColor!,
           borderColor!,
-          2
+          lineWidth
         );
         break;
       case "PENCIL":
-        this.currentShape = new Pencil(x, y, fillColor!, 1);
+        this.currentShape = new Pencil(x, y, fillColor!, lineWidth);
         break;
     }
 

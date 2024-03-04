@@ -8,6 +8,7 @@ import { ColorType } from "./types/colorTypes";
 import { BackgroundColor } from "./types/commonTypes";
 
 import "./styles/style.scss";
+import WidthLine from "./components/WidthLine/WidthLine";
 
 const tools: ToolType[] = [
   ToolType.RECTANGLE,
@@ -34,6 +35,8 @@ const defaultColors: string[] = [
   "brown",
 ];
 
+const widthList: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 50];
+
 document.addEventListener("DOMContentLoaded", () => {
   const app: HTMLDivElement = document.getElementById("app") as HTMLDivElement;
   const canvasBackgroundColor: BackgroundColor = "#FFFFF0";
@@ -45,10 +48,14 @@ document.addEventListener("DOMContentLoaded", () => {
     canvasBackgroundColor
   );
   const toolbar = new Toolbar(app, tools);
+
   const colorFill = new Color(ColorType.BACKGROUND, toolbar.getToolbarContainer(), defaultColors);
   const colorBorder = new Color(ColorType.BORDER, toolbar.getToolbarContainer(), defaultColors);
 
+  const width = new WidthLine(toolbar.getToolbarContainer(), widthList);
+
   toolbar.create();
+  width.create();
   colorFill.create();
   colorBorder.create();
   canvas.create();
@@ -63,7 +70,8 @@ document.addEventListener("DOMContentLoaded", () => {
       event.offsetX,
       event.offsetY,
       colorFill.getColor(),
-      colorBorder.getColor()
+      colorBorder.getColor(),
+      width.getWidth()
     );
   });
 
