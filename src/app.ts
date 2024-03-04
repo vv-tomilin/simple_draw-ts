@@ -1,8 +1,11 @@
 import CanvasCreator from "./components/CanvasCreator";
 import Toolbar from "./components/Toolbar";
 import CanvasApp from "./components/CanvasApp";
+import Color from "./components/Colors/Color";
 
-import { BackgroundColor, ToolType } from "./types/commonTypes";
+import { ToolType } from "./types/toolbarTypes";
+import { ColorType } from "./types/colorTypes";
+import { BackgroundColor } from "./types/commonTypes";
 
 import "./styles/style.scss";
 
@@ -16,19 +19,38 @@ const tools: ToolType[] = [
   ToolType.PENCIL,
 ];
 
+const defaultColors: string[] = [
+  "black",
+  "white",
+  "red",
+  "green",
+  "blue",
+  "yellow",
+  "orange",
+  "aqua",
+  "violet",
+  "magenta",
+  "grey",
+  "brown",
+];
+
 document.addEventListener("DOMContentLoaded", () => {
   const app: HTMLDivElement = document.getElementById("app") as HTMLDivElement;
   const canvasBackgroundColor: BackgroundColor = "#FFFFF0";
 
   const canvas = new CanvasCreator(
     window.innerWidth - 15,
-    window.innerHeight - 40,
+    window.innerHeight - 100,
     app,
     canvasBackgroundColor
   );
   const toolbar = new Toolbar(app, tools);
+  const colorFill = new Color(ColorType.BACKGROUND, toolbar.getToolbarContainer(), defaultColors);
+  const colorBorder = new Color(ColorType.BORDER, toolbar.getToolbarContainer(), defaultColors);
 
   toolbar.create();
+  colorFill.create();
+  colorBorder.create();
   canvas.create();
 
   const canvasElem = canvas.getCanvas();
@@ -36,7 +58,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const canvasApp = new CanvasApp(canvasElem);
 
   canvasElem.addEventListener("mousedown", (event: MouseEvent) => {
-    canvasApp.startDrawing(toolbar.getSelectedTool(), event.offsetX, event.offsetY);
+    canvasApp.startDrawing(
+      toolbar.getSelectedTool(),
+      event.offsetX,
+      event.offsetY,
+      colorFill.getColor(),
+      colorBorder.getColor()
+    );
   });
 
   canvasElem.addEventListener("mouseup", () => {

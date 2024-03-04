@@ -1,4 +1,4 @@
-import { ToolType, ToolNameRU, ToolIcon } from "../types/commonTypes";
+import { ToolType, ToolNameRU, ToolIcon } from "../types/toolbarTypes";
 
 export default class Toolbar {
   private toolbarContainer: HTMLDivElement = document.createElement("div") as HTMLDivElement;
@@ -18,8 +18,12 @@ export default class Toolbar {
     this.appendTools(this.toolbarContainer);
   }
 
-  getSelectedTool() {
+  getSelectedTool(): string | null {
     return this.selectedTool;
+  }
+
+  getToolbarContainer(): HTMLDivElement {
+    return this.toolbarContainer;
   }
 
   private appendTools(container: HTMLDivElement) {

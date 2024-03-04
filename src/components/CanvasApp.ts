@@ -2,7 +2,8 @@ import Shape from "./Shapes/Shape";
 import Rectangle from "./Shapes/Rectangle";
 import Circle from "./Shapes/Circle";
 import Pencil from "./Shapes/Pencil";
-import { ToolType } from "../types/commonTypes";
+import { ToolType } from "../types/toolbarTypes";
+import { BackgroundColor } from "../types/commonTypes";
 
 export default class CanvasApp {
   private shapes: Shape[] = [];
@@ -16,32 +17,66 @@ export default class CanvasApp {
     this.context = this.canvas.getContext("2d")!;
   }
 
-  startDrawing(currentTool: string | null, x: number, y: number): void {
+  startDrawing(
+    currentTool: string | null,
+    x: number,
+    y: number,
+    fillColor: BackgroundColor | null,
+    borderColor: BackgroundColor | null
+  ): void {
     if (!this.isDrawing) {
       this.isDrawing = true;
     }
 
     switch (currentTool) {
       case "RECTANGLE":
-        this.currentShape = new Rectangle(x, y, ToolType.RECTANGLE, "", "black", 1);
+        this.currentShape = new Rectangle(x, y, ToolType.RECTANGLE, "", fillColor!, 1);
         break;
       case "RECTANGLE_FILL_ONLY":
-        this.currentShape = new Rectangle(x, y, ToolType.RECTANGLE_FILL_ONLY, "green", "", 1);
+        this.currentShape = new Rectangle(
+          x,
+          y,
+          ToolType.RECTANGLE_FILL_ONLY,
+          fillColor!,
+          borderColor!,
+          1
+        );
         break;
       case "RECTANGLE_OUTLINE_FILL":
-        this.currentShape = new Rectangle(x, y, ToolType.RECTANGLE_OUTLINE_FILL, "red", "black", 3);
+        this.currentShape = new Rectangle(
+          x,
+          y,
+          ToolType.RECTANGLE_OUTLINE_FILL,
+          fillColor!,
+          borderColor!,
+          2
+        );
         break;
       case "CIRCLE":
-        this.currentShape = new Circle(x, y, ToolType.CIRCLE, "", "black", 2);
+        this.currentShape = new Circle(x, y, ToolType.CIRCLE, "", fillColor!, 2);
         break;
       case "CIRCLE_FILL_ONLY":
-        this.currentShape = new Circle(x, y, ToolType.CIRCLE_FILL_ONLY, "green", "", 2);
+        this.currentShape = new Circle(
+          x,
+          y,
+          ToolType.CIRCLE_FILL_ONLY,
+          fillColor!,
+          borderColor!,
+          2
+        );
         break;
       case "CIRCLE_OUTLINE_FILL":
-        this.currentShape = new Circle(x, y, ToolType.CIRCLE_OUTLINE_FILL, "blue", "red", 2);
+        this.currentShape = new Circle(
+          x,
+          y,
+          ToolType.CIRCLE_OUTLINE_FILL,
+          fillColor!,
+          borderColor!,
+          2
+        );
         break;
       case "PENCIL":
-        this.currentShape = new Pencil(x, y, "red", 1);
+        this.currentShape = new Pencil(x, y, fillColor!, 1);
         break;
     }
 

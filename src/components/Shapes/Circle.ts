@@ -1,4 +1,4 @@
-import { ToolType } from "../../types/commonTypes";
+import { ToolType } from "../../types/toolbarTypes";
 import Shape from "./Shape";
 
 export default class Circle extends Shape {
